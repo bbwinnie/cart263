@@ -47,9 +47,9 @@ function setup() {
 // show three circle
 function draw() {
 
-    // drawEllipse(circleOne.x, circleOne.y, circleOne.width, circleOne.height, circleOne.r, circleOne.g, circleOne.b);
-    // drawEllipse(circleTwo.x, circleTwo.y, circleTwo.width, circleTwo.height, circleTwo.r, circleTwo.g, circleTwo.b);
-    // drawEllipse(circleThree.x, circleThree.y, circleThree.width, circleThree.height, circleThree.r, circleThree.g, circleThree.b)
+    drawEllipse(circleOne.x, circleOne.y, circleOne.width, circleOne.height, circleOne.r, circleOne.g, circleOne.b);
+    drawEllipse(circleTwo.x, circleTwo.y, circleTwo.width, circleTwo.height, circleTwo.r, circleTwo.g, circleTwo.b);
+    drawEllipse(circleThree.x, circleThree.y, circleThree.width, circleThree.height, circleThree.r, circleThree.g, circleThree.b)
     // // drawC1();
     // // drawC2();
     // drawC3();
@@ -85,13 +85,12 @@ function draw() {
 
 
 // QU2 draw three Ellipse
-// function drawEllipse(x, y, w, h, r, g, b) {
-//     push();
-//     noStroke();
-//     fill(r, g, b);
-//     ellipse(x, y, w, h);
-//     pop();
-// }
+function drawEllipse(x, y, w, h, r, g, b) {
+    push();
+    noStroke();
+    fill(r, g, b);
+    ellipse(x, y, w, h);
+    pop();
+}
 
-//QU3 draw three square 
 

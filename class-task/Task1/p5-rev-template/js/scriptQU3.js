@@ -36,6 +36,7 @@ function draw() {
 
     drawRect();
 
+    //rectangle3 move each frame.
     rectangleP.y3 += rectangleP.speed3;
     if (rectangleP.y3 > height) {
         rectangleP.y3 = 0;
