@@ -47,34 +47,49 @@ function setup() {
 // show three circle
 function draw() {
 
-    drawC1();
-    drawC2();
-    drawC3();
+    drawEllipse(circleOne.x, circleOne.y, circleOne.width, circleOne.height, circleOne.r, circleOne.g, circleOne.b);
+    drawEllipse(circleTwo.x, circleTwo.y, circleTwo.width, circleTwo.height, circleTwo.r, circleTwo.g, circleTwo.b);
+    drawEllipse(circleThree.x, circleThree.y, circleThree.width, circleThree.height, circleThree.r, circleThree.g, circleThree.b)
+    // drawC1();
+    // drawC2();
+    // drawC3();
+
 }
 
-//draw circle one
-function drawC1() {
-    push();
-    noStroke();
-    fill(circleOne.r, circleOne.g, circleOne.b);
-    ellipse(circleOne.x, circleOne.y, circleOne.width, circleOne.height);
-    pop();
-}
+// //draw circle one
+// function drawC1() {
+//     push();
+//     noStroke();
+//     fill(circleOne.r, circleOne.g, circleOne.b);
+//     ellipse(circleOne.x, circleOne.y, circleOne.width, circleOne.height);
+//     pop();
+// }
 
-//draw circle two
-function drawC2() {
-    push();
-    noStroke();
-    fill(circleTwo.r, circleTwo.g, circleTwo.b);
-    ellipse(circleTwo.x, circleTwo.y, circleTwo.width, circleTwo.height);
-    pop();
-}
+// //draw circle two
+// function drawC2() {
+//     push();
+//     noStroke();
+//     fill(circleTwo.r, circleTwo.g, circleTwo.b);
+//     ellipse(circleTwo.x, circleTwo.y, circleTwo.width, circleTwo.height);
+//     pop();
+// }
 
-//draw circle three
-function drawC3() {
+// //draw circle three
+// function drawC3() {
+//     push();
+//     noStroke();
+//     fill(circleThree.r, circleThree.g, circleThree.b);
+//     ellipse(circleThree.x, circleThree.y, circleThree.width, circleThree.height);
+//     pop();
+// }
+
+
+// QU2 
+
+function drawEllipse(x, y, w, h, r, g, b) {
     push();
     noStroke();
-    fill(circleThree.r, circleThree.g, circleThree.b);
-    ellipse(circleThree.x, circleThree.y, circleThree.width, circleThree.height);
+    fill(r, g, b);
+    ellipse(x, y, w, h);
     pop();
 }
