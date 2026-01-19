@@ -1,3 +1,5 @@
+"use strict";
+
 // set the defaut counter 
 let counter = 0;
 

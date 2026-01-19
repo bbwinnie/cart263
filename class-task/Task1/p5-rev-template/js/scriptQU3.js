@@ -83,7 +83,7 @@ function mouseClicked() {
 
 // when the space bar pressed secound rect move.
 function keyPressed() {
-    if (key === '') {
+    if (key === ' ') {
 
     }
     rectangleP.x2 += 4;

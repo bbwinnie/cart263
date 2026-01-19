@@ -1,3 +1,5 @@
+"use strict";
+
 //draw the canvas and background color
 function setup() {
 
