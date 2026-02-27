@@ -66,6 +66,4 @@ window.onload = function () {
     context.fill();
     context.closePath(); //end a path ...
 
-
-
 };

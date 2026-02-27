@@ -21,17 +21,17 @@ window.onload = function () {
 
     this.document.getElementById("refresh").addEventListener("click", retrieveHandler);
 
-    // function retrieveHandler() { 
+    // function retrieveHandler() {
     //     let valueA = localStorage.getItem("a");
     //     console.log(valueA);
     // }
 
-    // function retrieveHandler() {
-    //     for (let [key, value] of Object.entries(localStorage)) {
-    //         let textBox = document.querySelector(`div[data-ref=${key}]`);
-    //         //clear
-    //         textBox.innerHTML = value;
-    //     }
-    // }
+    function retrieveHandler() {
+        for (let [key, value] of Object.entries(localStorage)) {
+            let textBox = document.querySelector(`div[data-ref=${key}]`);
+            //clear
+            textBox.innerHTML = value;
+        }
+    }
 
 };

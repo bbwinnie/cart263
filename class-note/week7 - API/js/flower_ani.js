@@ -36,8 +36,11 @@ window.onload = function () {
 
     let r1 = 30;
     let counter = 0;
+    let lastTime = 0;
+
     requestAnimationFrame(animate);
-    function animate() {
+
+    function animate(currentTime) {
         //console.log("go")
         context.clearRect(0, 0, canvas.width, canvas.height);
         //we will make a scaling animation:
@@ -54,7 +57,12 @@ window.onload = function () {
             "rgb(0, 213, 255)",
             "#ce4990ff",
         ]);
-        counter += 0.01; // if using 0.1 it will faster 
+
+        let delta_time = currentTime - lastTime;
+        lastTime = currentTime;
+
+        // counter += 0.01; // if using 0.1 it will faster 
+        counter += 0.01 * delta_time;
         requestAnimationFrame(animate);
     }
 }
