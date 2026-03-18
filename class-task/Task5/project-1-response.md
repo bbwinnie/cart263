@@ -1,0 +1,20 @@
+Tittle : Project I Response
+Author: Weini Wang
+
+Wowaka：Audio Visual （https://pansyqwq.github.io/Cart263_Project/263-Midterm/）
+
+About the Wowaka project, I really like the way they recreate the audio and make it act as an audio-visual tribute to the late Wowaka. I think they did a great job translating the music into visual form. The website also uses relatively short and clear code to create the whole experience. Users can choose different songs to play, and the visual effects on the screen change dynamically with the sound of the music. What I find most interesting about this work is that it is not just a music player, but a system that combines music and visuals together, allowing the audience to almost “see” the sound. This makes the experience feel more artistic and expressive compared to a traditional music player.
+
+From the perspective of the code, I was very curious about how they made the visuals follow the rhythm of the music. After looking through the code, I found that they use the Web Audio API to analyze the volume of the music. The code first creates an AudioContext to process the audio, and then uses an AnalyserNode to read the waveform data of the music. The program continuously collects audio data and calculates the intensity of the sound using RMS (Root Mean Square). The volume value is then converted into a number between 0 and 1, which is sent to the visual system to control the movement and transformation of the graphics. When the music becomes louder, the visual animation becomes stronger and more dynamic, creating an interaction between sound and image.
+
+Another technique they use is requestAnimationFrame, which we also learned about in class. This function creates a continuous animation loop. In every frame, the program reads the current audio volume and sends that value to the visual system through an update() function. Because this loop runs constantly, the visuals can respond to the music in real time. I think this is a very clever way to connect audio analysis with visual animation. It also shows how programming techniques can be used to create responsive and interactive digital media experiences.
+
+Something else I found very interesting is that the heart graphic in the project is not imported as an image file. Instead, it is created using SVG code. This was the first time I realized that graphics can be drawn directly using SVG. After researching it a bit more, I learned that SVG is a type of vector graphic that can be dynamically inserted into a webpage using JavaScript. Unlike normal images, SVG graphics are defined by mathematical paths, which means they can scale infinitely without losing quality. In this project, the SVG heart becomes an animated visual element that reacts to the music. I think SVG is a very interesting technique, and it is something I might want to use in my own web design projects in the future.
+
+I also think the visual design of the website is very impressive. The interface is very clean, with clear buttons that allow users to control the music playback, volume, and song selection. I think they made very good use of black, white, and gray as the main colors of the page. Even though the interface is simple, the layout feels very clear and harmonious. This simplicity actually helps users focus more on the relationship between the music and the visuals.
+
+Although users cannot directly control the animation itself, the visuals change according to the music, which still creates a sense of interaction. The audience can feel that the visuals are reacting to the sound in real time. This makes the experience more immersive than a normal music player.
+
+Overall, I think the most attractive aspect of this project is that it demonstrates how code can become a creative tool. Through audio analysis, animation loops, and dynamically generated visual elements, the code not only performs technical functions but also creates an artistic experience. It shows how programming can be used not only for functionality but also for artistic expression and creative exploration in digital media.
+
+
