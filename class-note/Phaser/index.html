@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My First Phaser Game</title>
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3/dist/phaser.js"></script>
+    <style>
+        body {
+            margin: 0;
+            background: #111;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        const config = {
+            type: Phaser.AUTO,
+            //phaser 自动帮我选渲染模式
+            width: 800,
+            height: 600,
+            //游戏画布大小
+            backgroundColor: '#1d1d1d',
+            physics: {
+                default: 'arcade',
+                arcade: {
+                    debug: false
+                }
+            },
+            //arcada physics(物理系统)
+            scene: {
+                preload: preload,
+                create: create,
+                update: update
+            }
+            //告诉phaser场景执行函数
+        };
+
+        //启动游戏（按照上面的函数）
+        const game = new Phaser.Game(config);
+
+        //设置基本参数
+        let player;
+        let cursors;
+        let stars;
+        let score = 0;
+        let scoreText;
+        let spawnTimer = 0;
+
+        //加载图片或者音频资源，可以用这个直接内容生成做成纹理
+        function preload() {
+            // 生成一个玩家纹理（蓝色方块）
+            const playerGraphics = this.make.graphics({ x: 0, y: 0, add: false });
+            playerGraphics.fillStyle(0x4da6ff, 1);
+            playerGraphics.fillRect(0, 0, 50, 50);
+            playerGraphics.generateTexture('player', 50, 50);
+
+            // 生成一个星星纹理（黄色圆）
+            const starGraphics = this.make.graphics({ x: 0, y: 0, add: false });
+            starGraphics.fillStyle(0xffcc33, 1);
+            starGraphics.fillCircle(15, 15, 15);
+            starGraphics.generateTexture('star', 30, 30);
+        }
+
+        //把东西放进场景里
+        function create() {
+            // 玩家 创建有物理属性的图片，放在400，540的位置用刚才叫player的纹理
+            player = this.physics.add.image(400, 540, 'player');
+            //玩家不能跑到屏幕外面
+            player.setCollideWorldBounds(true);
+
+            // 键盘方向键 创建方向键对象
+            cursors = this.input.keyboard.createCursorKeys();
+
+            // 星星组 掉下来的⭐都在这个组里
+            stars = this.physics.add.group();
+
+            // 分数文字
+            scoreText = this.add.text(20, 20, 'Score: 0', {
+                fontSize: '28px',
+                color: '#ffffff'
+            });
+
+            // 玩家和星星重叠时触发 collectStar
+            this.physics.add.overlap(player, stars, collectStar, null, this);
+        }
+
+        //每一帧跑的地方
+        function update(time, delta) {
+            // 每一帧先停下来
+            player.setVelocityX(0);
+
+            // 左右移动
+            if (cursors.left.isDown) {
+                player.setVelocityX(-300);
+            } else if (cursors.right.isDown) {
+                player.setVelocityX(300);
+            }
+
+            // 定时生成星星
+            spawnTimer += delta;
+            if (spawnTimer > 800) {
+                spawnStar.call(this);
+                spawnTimer = 0;
+            }
+
+            // 清掉掉出屏幕的星星
+            stars.children.iterate(function (star) {
+                if (star && star.y > 650) {
+                    star.destroy();
+                }
+            });
+        }
+
+        //创建掉落物
+        function spawnStar() {
+            const x = Phaser.Math.Between(30, 770);
+            const star = stars.create(x, 0, 'star');
+            star.setVelocityY(200);
+        }
+
+        //碰到星星后的反应
+        function collectStar(player, star) {
+            star.destroy();
+            score += 1;
+            scoreText.setText('Score: ' + score);
+        }
+    </script>
+</body>
+
+</html>
